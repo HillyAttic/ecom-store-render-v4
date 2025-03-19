@@ -17,13 +17,15 @@ const nextConfig = {
       'images.unsplash.com',
       'randomuser.me',
       'i.pravatar.cc',
-      'cloudflare-ipfs.com'
+      'cloudflare-ipfs.com',
+      'handloomdb-5178c.firebasestorage.app'
     ],
-    unoptimized: true,
+    unoptimized: process.env.NODE_ENV === 'production'
   },
   experimental: {
     // Disable optimizeCss to avoid critters issues
     optimizeCss: false,
+    serverActionsTimeout: 60 * 1000, // 1 minute
   },
   distDir: 'custom-build',
   // The dir option is not valid in Next.js config
@@ -31,6 +33,8 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   output: 'standalone',
+  // Configure for Netlify deployment
+  trailingSlash: true,
   webpack: (config, { isServer, dev }) => {
     // Fix for the "to" argument error in path.relative
     config.watchOptions = {

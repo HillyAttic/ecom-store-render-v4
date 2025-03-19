@@ -8,7 +8,7 @@
     "dev:alt": "set NODE_OPTIONS=--no-warnings --max-old-space-size=4096 && next dev -p 3005",
     "kill-port": "node scripts/kill-port.js",
     "build": "set NODE_OPTIONS=--no-warnings --max-old-space-size=4096 --no-deprecation && set NEXT_TELEMETRY_DISABLED=1 && next build",
-    "netlify-build": "NODE_OPTIONS='--no-warnings --max-old-space-size=4096 --no-deprecation' NEXT_TELEMETRY_DISABLED=1 next build",
+    "netlify-build": "NEXT_TELEMETRY_DISABLED=1 next build",
     "start": "node scripts/start.js",
     "start:fixed": "next start -p 3004",
     "lint": "next lint",
