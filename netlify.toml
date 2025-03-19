@@ -15,6 +15,12 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Plugin to handle large environment variables
+[[plugins]]
+  package = "netlify-plugin-inline-functions-env"
+  [plugins.inputs]
+    include = ["FIREBASE_PRIVATE_KEY", "FIREBASE_ADMIN_PRIVATE_KEY"]
+
 # Redirects for API routes
 [[redirects]]
   from = "/api/*"
